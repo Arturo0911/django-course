@@ -2,7 +2,7 @@
 from django.apps import AppConfig
 
 
-class PostsConfig(AppConfig):
+class PostConfig(AppConfig):
     """Posts applications settings."""
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'posts'
