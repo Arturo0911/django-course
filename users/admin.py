@@ -1,5 +1,11 @@
+"""Django admin class"""
+
+
+# Django imports
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin 
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+
+# Local imports
 from users.models import Profile
 # Register your models here.
 
