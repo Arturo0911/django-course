@@ -4,8 +4,10 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import (
     authenticate,
-    login
+    login,
+    logout
 )
+from django.contrib.auth.decorators import login_required
 
 def login_view(request):
     """login authentication"""
@@ -19,8 +21,13 @@ def login_view(request):
             login(request, user)
             return redirect("feed")
         else:
-            render(request, "users/login.html", {"error": "Invalid username or password"})
+            return render(request, "users/login.html", {"error": "Invalid username or password"})
 
-    return render(request, "users/login.html")
+    return render(request, 'users/login.html')
 
-# Create your views here.
+@login_required
+def logout_view(request):
+    """Logout a user."""
+    logout(request)
+    return redirect("login")
+    
