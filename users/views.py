@@ -1,6 +1,7 @@
 """Users views modules."""
 
 # Django modules
+from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import (
     authenticate,
@@ -8,6 +9,11 @@ from django.contrib.auth import (
     logout
 )
 from django.contrib.auth.decorators import login_required
+
+def index_view(request):
+    return HttpResponse("The index route")
+
+
 
 def login_view(request):
     """login authentication"""
@@ -30,4 +36,9 @@ def logout_view(request):
     """Logout a user."""
     logout(request)
     return redirect("login")
-    
+
+
+
+def signup(request):
+    """signup view"""
+    return render(request, "users/signup.html")
